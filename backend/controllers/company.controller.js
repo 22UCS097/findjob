@@ -2,6 +2,7 @@
 import { Company } from "../models/company.model.js";  
 
 export const registerCompany=async (req,res)=>{
+      console.log(req);
     try {
          const {companyName}=req.body;
          if(!companyName){
@@ -22,7 +23,7 @@ export const registerCompany=async (req,res)=>{
              userId:req.id
          })
          
-         return res.status(200).json({
+         return res.status(201).json({
              message:"Company created successfully",
               company,
              succedd:true

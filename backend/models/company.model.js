@@ -11,15 +11,12 @@ const companySchema=new mongoose.Schema({
     },
      website:{
         type:String,
-        required:true
     },
      location:{
         type:String,
-        required:true
     },
      logo:{
         type:String,//URL of company:
-        required:true
     },
     userId:{
         type:mongoose.Schema.Types.ObjectId,
