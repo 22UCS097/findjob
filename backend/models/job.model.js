@@ -3,20 +3,23 @@ import mongoose, { mongo } from "mongoose";
 const jobSchema=new mongoose.Schema({
      title:{
          type:String,
-         required:String,
+         required:true,
      },
       description:{
          type:String,
-         required:String,
+         required:true,
      },
-      requiredments:{
+      requirements:[{
          type:String,
-         required:String,
-     },
+     }],
       salary:{
          type:String,
-         required:String,
+         required:true,
      },
+      experienceLevel:{
+          type:Number,
+          required:true
+      },
      location:{
         type:String,
          required:true
