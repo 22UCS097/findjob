@@ -1,4 +1,3 @@
-import { useId } from "react";
 import { Application } from "../models/application.model.js";
 import { Job } from "../models/job.model.js";
 
@@ -37,7 +36,7 @@ export const applyJob=async (req,res)=>{
         //create a new application:
         const newApplication=await Application.create({
             job:jobId,
-            applicant:useId,
+            applicant:userId,
 
         })
 
@@ -94,7 +93,7 @@ export const getAppliedJobs=async(req,res)=>{
 export const getApplicants= async(req,res)=>{
      try {
         const jobId=req.params.id;
-        const job=await job.findById(jobId).populate({
+        const job=await Job.findById(jobId).populate({
             path:'applications',
             options:{sort:{createdAt:-1}},
             populate:{
@@ -134,7 +133,7 @@ export const updateStatus=async(req,res)=>{
 
          //find application by applicant id:
 
-         const application =await Application.findOne({id:applicationId});
+         const application =await Application.findOne({_id:applicationId});
           if(!application){
              return res.status(404).json({
                 message:"Applications not found",
